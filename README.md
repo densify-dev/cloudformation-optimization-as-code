@@ -23,14 +23,13 @@ To setup the Densify Optimization CloudFormation resource, follow the steps belo
 ```
 aws cloudformation register-type 
 --type-name Densify::Optimization::Recommendation
---schema-handler-package ${S3ziplink}
+--schema-handler-package https://cloudformation-optimization-as-code.s3.amazonaws.com/densify-optimization-recommendation.zip
 --logging-config "{\"LogRoleArn\":\"${LogAndMetricsDeliveryRoleARN}\",\"LogGroupName\": \"${GroupName}\"}"
 --type RESOURCE
 --role-arn ${ResourceRoleARN}
 --region ${yourRegion}
  ```
  Where
- * $\{S3ziplink\} is the Densify public s3 bucket path to the artifact zip file.
  * $\{LogAndMetricsDeliveryRoleARN\} is your LogAndMetricsDeliveryRole IAM Role ARN from step 1.
  * $\{GroupName\} is your log group name, from step 1.
  * $\{yourRegion\} is the resource registration region. You will need to register the resource for each region.
