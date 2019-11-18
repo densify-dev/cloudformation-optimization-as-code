@@ -1,0 +1,133 @@
+{
+    "typeName": "Densify::Optimization::Recommendation",
+    "description": "Leverage Densify machine learning to enable cloud and container resources to be self-optimizing",
+    "sourceUrl": "https://densify.com",
+    "properties": {
+        "ProvisioningID": {
+            "description": "string value used to identify EC2 instance. must uniquely match one of the instance tags",
+            "type": "string"
+        },
+        "InstanceType": {
+            "description": "Instance size and family to be implemented",
+            "type": "string"
+        },
+        "CurrentType": {
+            "description": "Current instance size and family.",
+            "type": "string"
+        },
+        "RecommendedType": {
+            "description": "Densify recommended instance size and family.",
+            "type": "string"
+        },
+        "SavingsEstimate": {
+            "description": "The potential monthly savings from modifying the current instance to the Densify recommended instance.",
+            "type": "string"
+        },
+        "PredictedUptime": {
+            "description": "The predicted percentage of CPU utilization hours over the duration of a month.",
+            "type": "string"
+        },
+        "testAWSAccount": {
+            "description": "just for testng purposes, can not be used in prod and will be removed.",
+            "type": "string"
+        },
+        "DensifyConnectionParameterName": {
+            "description": "Custom name for parameter where Densify connection info is stored. Default: DensifyConnection.",
+            "type": "string"
+        },
+        "ForceUpdate": {
+            "description": "Attribue used for forcing resource update every time Stack Update is called",
+            "type": "string"
+        }
+    },
+    "required": [
+        "ProvisioningID"
+    ],
+    "readOnlyProperties": [
+        "/properties/InstanceType",
+        "/properties/CurrentType",
+        "/properties/RecommendedType",
+        "/properties/SavingsEstimate",
+        "/properties/PredictedUptime"
+    ],
+    "primaryIdentifier": [
+        "/properties/ProvisioningID"
+    ],
+    "handlers": {
+        "create": {
+            "permissions": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:DeleteParameters",
+                "ssm:DescribeParameters",
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ]
+        },
+        "read": {
+            "permissions": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:DeleteParameters",
+                "ssm:DescribeParameters",
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ]
+        },
+        "update": {
+            "permissions": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:DeleteParameters",
+                "ssm:DescribeParameters",
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ]
+        },
+        "delete": {
+            "permissions": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:DeleteParameters",
+                "ssm:DescribeParameters",
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ]
+        },
+        "list": {
+            "permissions": [
+                "ssm:PutParameter",
+                "ssm:DeleteParameter",
+                "ssm:GetParameter",
+                "ssm:GetParameters",
+                "ssm:GetParametersByPath",
+                "ssm:DeleteParameters",
+                "ssm:DescribeParameters",
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncryptFrom",
+                "kms:ReEncryptTo"
+            ]
+        }
+    }
+}
